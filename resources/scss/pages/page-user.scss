@@ -1,0 +1,141 @@
+#page-user-list {
+    background: #f4f8f9;
+    min-height: 100%;
+
+    .ui-head {
+        background: url("images/user/center-bg.jpg") no-repeat;
+        background: #000;
+        background-size: 100% 100%;
+        border-bottom: 1px solid #e9e8e9; /* no */
+        padding: 70px 0;
+
+        .ui-head-setup {
+            position: absolute;
+            color: #fff;
+            top: 40px;
+            right: 40px;
+            @include px2px('font-size', 22);
+        }
+
+        .ui-head-face {
+            width: 120px;
+            height: 120px;
+            border: 1px solid #8e8e8e; /*no*/
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+
+            img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        .ui-head-name {
+            margin-top: 24px;
+            @include px2px('font-size', 32);
+            color: #fff;
+            text-align: center;
+        }
+    }
+
+    .ui-order {
+        margin-top: 20px;
+
+        .ui-order-title {
+            background: white;
+            height: 84px;
+            line-height: 84px;
+            overflow: hidden;
+            position: relative;
+            padding-left: 25px;
+            border-bottom: 1px solid #edebed; /*no*/
+            .ui-order-title-name {
+                @include px2px('font-size', 28);
+                float: left;
+            }
+
+            .ui-order-title-value {
+                @include px2px('font-size', 24);
+                float: right;
+                color: #999;
+            }
+        }
+
+        .ui-order-nav {
+            height: 162px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+
+            .ui-order-box {
+                width: 100%;
+                text-align: center;
+            }
+
+            p {
+                margin-top: 20px;
+                @include px2px('font-size', 24);
+            }
+
+            .iconfont {
+                @include px2px('font-size', 44);
+            }
+        }
+    }
+
+    .ui-user-list {
+        margin-top: 20px;
+
+        .ui-user-list-item {
+            height: 96px;
+            line-height: 96px;
+            @include px2px('font-size', 28);
+            color: #000;
+            background: #fff;
+            padding-left: 28px;
+            display: flex;
+            justify-content: space-between;
+
+            &:last-child {
+                margin-top: 20px;
+
+                .item-main {
+                    border-bottom: none;
+                }
+
+            }
+
+            .iconfont {
+                @include px2px('font-size', 34);
+                color: #bababc;
+            }
+
+            .item-main {
+                margin-left: 20px;
+                width: 666px;
+                border-bottom: 1px solid #e9e8e9;
+                display: flex;
+                justify-content: space-between;
+
+                .ui-user-list-text {
+                    @include px2px('font-size', 24);
+                    position: absolute;
+                    right: 40px;
+                    color: #999;
+
+                    span {
+                        &:first-child {
+                            color: #fe6232;
+                        }
+                    }
+                }
+
+                .icon-arrow {
+                    float: right;
+                }
+            }
+        }
+    }
+}

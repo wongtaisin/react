@@ -1,0 +1,84 @@
+{
+    "name": "demo",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "axios": "^0.18.0",
+        "create-react-app": "^1.3.2",
+        "eslint": "^4.1.1",
+        "eslint-loader": "^1.8.0",
+        "react": "^15.5.4",
+        "react-addons-css-transition-group": "^15.5.2",
+        "react-dom": "^15.5.4",
+        "react-router-dom": "^4.1.1",
+        "react-router-transition": "^0.1.1",
+        "react-transition-group": "^1.1.3",
+        "swiper": "^4.4.2"
+    },
+    "devDependencies": {
+        "react-load-script": "0.0.6",
+        "react-scripts": "^1.0.7"
+    },
+    "scripts": {
+        "dev": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "env": {
+            "browser": true,
+            "commonjs": true,
+            "node": true,
+            "es6": true
+        },
+        "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
+        "rules": {
+            "indent": [
+                "error",
+                "tab"
+            ],
+            "jsx-quotes": [
+                "error",
+                "prefer-single"
+            ],
+            "semi": [
+                "error",
+                "never"
+            ],
+            "comma-dangle": [
+                "error",
+                "never"
+            ],
+            "camelcase": [
+                "warn",
+                {
+                    "properties": "always"
+                }
+            ],
+            "no-console": "off",
+            "no-unused-vars": "error",
+            "no-redeclare": "warn",
+            "no-dupe-args": "error",
+            "no-useless-escape": "off",
+            "no-mixed-spaces-and-tabs": "error",
+            "no-multiple-empty-lines": [
+                "error",
+                {
+                    "max": 1
+                }
+            ]
+        },
+        "globals": {
+            "xmui": true,
+            "var2": false
+        }
+    }
+}

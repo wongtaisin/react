@@ -1,0 +1,32 @@
+//评分星星✨
+.star-ratings {
+    display: inline-block;
+    position: relative;
+
+    .star-ratings-fill {
+        color: #fed444;
+        position: absolute;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 0;
+        // transform: translateX(-50%);
+    }
+
+    .star-ratings-empty {
+        color: #ececec;
+    }
+
+    span {
+        &:after {
+            margin-right: 5px !important;
+            @include px2px('font-size', 26);
+            font-family: iconfont;
+            display: inline-block;
+            content: "\e604";
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
