@@ -22,14 +22,14 @@ export default class GoodsList extends React.Component {
 
 		const GOODS_LIST = this.props.data.map((item, index) => {
 			return (
-				<a key={index} className='ui-goods-list-item' href={item.url}>
-					<img className='ui-goods-list-left ui-goods-list-img' src={item.image} />
+				<div key={index} className='ui-goods-list-item'>
+					<img className='ui-goods-list-left ui-goods-list-img' src={item.image} alt='' />
 					<div className='ui-goods-list-right'>
 						<h3 className='ui-goods-list-title'>{item.title}</h3>
 						<p className='ui-goods-list-price'>¥ {item.price}</p>
-						<span className='ui-goods-list-buy' href={item.url}>去购买</span>
+						<span className='ui-goods-list-buy'>去购买</span>
 					</div>
-				</a>
+				</div>
 			)
 		})
 

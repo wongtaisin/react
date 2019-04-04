@@ -1,9 +1,8 @@
 import React from 'react'
-import PageHome from './PageHome' //首页
-import PageShopList from '../ShopList/' //商铺列表页面
-import Activity from '../Activity/' //活动
-import User from '../User/' //个人中心
-
+import PageHome from './PageHome' // 首页
+import PageShopList from '../ShopList/' // 商铺列表页面
+import Activity from '../Activity/' // 活动
+import User from '../User/' // 个人中心
 import TabBar from './TabBar'
 
 const TABS_CONFIG = [
@@ -15,11 +14,11 @@ const TABS_CONFIG = [
 ]
 
 export default class Home extends React.Component {
-	render() {
+	render () {
 		return (
-			<div>
+			<section>
 				<TabBar data={TABS_CONFIG} />
-			</div>
+			</section>
 		)
 	}
 }

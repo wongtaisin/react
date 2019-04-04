@@ -9,9 +9,7 @@ export default class QRCodeBox extends React.Component {
 					长按二维码<br />
 					关注惠州
 				</div>
-				<div className='qrcode-slogan'>
-					限量特惠  ·  跟踪订单  ·  优质服务
-				</div>
+				<div className='qrcode-slogan'>限量特惠  ·  跟踪订单  ·  优质服务</div>
 			</section>
 		)
 	}

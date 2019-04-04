@@ -41,7 +41,6 @@ export default class TabBar extends React.Component {
 	}
 
 	render () {
-
 		return (
 			<section className='ui-tabbar-container'>
 				<section className='ui-tabbar-contents'>{this.renderTabBarContents()}</section>

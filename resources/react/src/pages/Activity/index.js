@@ -13,7 +13,7 @@ class ActivityList extends React.Component {
 				<a href={item.url} key={index}>
 					<li className='ui-activity-list'>
 						<div className='ui-activity-list-img'>
-							<img src={item.cover_img} />
+							<img src={item.cover_img} alt='' />
 						</div>
 						<div className='item-main'>
 							<div className='ui-activity-list-title'>{item.title}</div>
@@ -52,7 +52,6 @@ export default class ActivityListPage extends React.Component {
 		this.onScrollBottom = this.onScrollBottom.bind(this)
 		this.initPage = this.initPage.bind(this)
 		this.addCustomEventListener = this.addCustomEventListener.bind(this)
-
 	}
 
 	// 滑动加载
@@ -96,22 +95,18 @@ export default class ActivityListPage extends React.Component {
 		})
 	}
 
-	/**
-	 * 初始化
-	 */
+	// 初始化
 	addCustomEventListener () {
 		document.addEventListener("activitys", this.initPage)
 	}
 
-	/**
-	 * 页面初始化（获取数据、添加事件绑定）
-	 */
+	// 页面初始化（获取数据、添加事件绑定）
 	initPage () {
 		if (this.initiated) return false
 		this.fetchActivityData()
 		this.onScrollBottom()
 		this.initiated = true
-		// var myLazyLoad = new window.LazyLoad(); //初始化图片延时加载
+		// var myLazyLoad = new window.LazyLoad(); // 初始化图片延时加载
 	}
 
 	componentDidMount () {
@@ -124,12 +119,8 @@ export default class ActivityListPage extends React.Component {
 	}
 
 	render () {
-		let {
-			activity
-		} = this.state
-
+		let { activity } = this.state
 		if (!activity) return (<Spinner />)
-
 		return (
 			<section id='page-activity-list'>
 				<ActivityList data={activity} />

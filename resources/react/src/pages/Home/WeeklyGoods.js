@@ -1,12 +1,13 @@
 import React from 'react'
 import CountDown from '../../libs/CountDown'
 
-//因为编译时会出错，所以加上这个定义 TODO:更改ESLint配置来解决这个问题?2017-10-16
+// 因为编译时会出错，所以加上这个定义 TODO:更改ESLint配置来解决这个问题?2017-10-16
 const $ = window.jQuery
 const Swiper = window.Swiper
 const lib = window.lib
 
 class WeeklyGoods extends React.Component {
+
 	constructor(props) {
 		super(props)
 		this.initSwiper = this.initSwiper.bind(this)
@@ -39,14 +40,13 @@ class WeeklyGoods extends React.Component {
 	renderFooterGoods () {
 		let { spike_datas } = this.props
 		if (!spike_datas.length) return null
-
 		return (
 			<section className='footer'>
 				{
-					spike_datas[0] ? <a href={spike_datas[0].url} className='left img'><img src={spike_datas[0].image} /></a> : ''
+					spike_datas[0] ? <a href={spike_datas[0].url} className='left img'><img src={spike_datas[0].image} alt='' /></a> : ''
 				}
 				{
-					spike_datas[1] ? <a href={spike_datas[1].url} className='right img'><img src={spike_datas[1].image} /></a> : ''
+					spike_datas[1] ? <a href={spike_datas[1].url} className='right img'><img src={spike_datas[1].image} alt='' /></a> : ''
 				}
 			</section>
 		)
@@ -56,7 +56,7 @@ class WeeklyGoods extends React.Component {
 		return <li className='ui-weekly-goods-item swiper-slide' key={index}>
 			<a href={item.url}>
 				<div className='img'>
-					<img src={item.image} />
+					<img src={item.image} alt='' />
 					<div className='tag'>
 						<i className='iconfont icon-dianpu-ali'></i>{item.shop_name}</div>
 				</div>
@@ -69,15 +69,12 @@ class WeeklyGoods extends React.Component {
 		</li>
 	}
 
-	/**
-	 *初始化倒计时
-	 */
+	// 初始化倒计时
 	initCountDown (limited_time) {
 		new CountDown({
 			endTime: limited_time * 1000,
-			//每秒的回调
+			// 每秒的回调
 			onTick: function (data) {
-				console.log(data)
 				let parent_container = '.js-countdown '
 				$(parent_container + '.hours').text(data.hours)
 				$(parent_container + '.minutes').text(data.minutes)
@@ -85,15 +82,13 @@ class WeeklyGoods extends React.Component {
 			},
 			onTimeEnd: function () { //结束回调
 				window.location.reload()
-				//TODO: 如果接口数据中的数据本身就到时间，是否会出现一直刷新的问题
+				// TODO: 如果接口数据中的数据本身就到时间，是否会出现一直刷新的问题
 			}
 		})
 	}
 
 	render () {
-
 		let { limited_text, limited_time } = this.props
-
 		return (
 			<div className='ui-weekly-goods timelimit'>
 				<section className='header'>
@@ -119,9 +114,7 @@ class WeeklyGoods extends React.Component {
 						</a>
 					</ul>
 				</section>
-
 				{this.renderFooterGoods()}
-
 			</div>
 		)
 	}

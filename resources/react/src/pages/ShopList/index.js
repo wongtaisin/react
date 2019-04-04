@@ -1,11 +1,10 @@
 import React from 'react'
 import NavigationBar from './NavigationBar' //顶部导航条
 import Spinner from '../../components/Spinner'
-
 import FilterBar from './FilterBar'
 import Utils from '../../Utils'
 
-//因为编译时会出错，所以加上这个定义 TODO:更改ESLint配置来解决这个问题?2017-10-16
+// 因为编译时会出错，所以加上这个定义 TODO:更改ESLint配置来解决这个问题?2017-10-16
 const $ = window.jQuery
 
 // 暂无数据提示
@@ -15,7 +14,7 @@ const EmptyTip = () => {
 
 // 评分星星
 const RateStars = ({ star_value }) => {
-	//计算宽度
+	// 计算宽度
 	let width = (parseInt(star_value) / 5) * 100
 	let style = {
 		width: `${width}%`
@@ -63,7 +62,7 @@ class ShopList extends React.Component {
 
 			return (
 				<li className='ui-shop-list-item' onClick={this.onClickShopListItem.bind(this, item)} key={index}>
-					<img className='ui-shop-list-left' src={item.image} />
+					<img className='ui-shop-list-left' src={item.image} alt='' />
 					<div className='ui-shop-list-right'>
 						<p className='ui-shop-list-title'>{item.name}</p>
 						<span className='ui-shop-list-count'>到店 {item.count}</span>
@@ -76,13 +75,12 @@ class ShopList extends React.Component {
 
 	render () {
 		// let {data} = this.props
-		// if (!data.length)return <EmptyTip/>
-
+		// if (!data.length) return <EmptyTip/>
 		return (
 			<ul className='ui-shop-list'>
 				{/*{this.renderShopList()}*/}
 				<li className='ui-shop-list-item'>
-					<img className='ui-shop-list-left' src='http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg' />
+					<img className='ui-shop-list-left' src='http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg' alt='' />
 					<div className='ui-shop-list-right'>
 						<p className='ui-shop-list-title'>name</p>
 						<span className='ui-shop-list-count'>到店 count</span>
@@ -90,7 +88,7 @@ class ShopList extends React.Component {
 					</div>
 				</li>
 				<li className='ui-shop-list-item'>
-					<img className='ui-shop-list-left' src='http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg' />
+					<img className='ui-shop-list-left' src='http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg' alt='' />
 					<div className='ui-shop-list-right'>
 						<p className='ui-shop-list-title'>name</p>
 						<span className='ui-shop-list-count'>到店 count</span>
@@ -121,21 +119,16 @@ export default class ShopListPage extends React.Component {
 
 		this.isLoading = false
 		this.is_lastpage = false
-		this.initiated = false //页面是否完成初始化(是否已执行this.initPage() )
-
-		window.current_navigation_id = typeof window.current_navigation_id != 'undefined' ? window.current_navigation_id : 0
+		this.initiated = false // 页面是否完成初始化(是否已执行this.initPage() )
+		window.current_navigation_id = typeof window.current_navigation_id !== 'undefined' ? window.current_navigation_id : 0
 		window.current_navigation_page = 1
-
 		this.onClickFilterBarItem = this.onClickFilterBarItem.bind(this)
 		this.onChildClick = this.onChildClick.bind(this)
-
-		this.fetchNavData = this.fetchNavData.bind(this) //Nav数据
-
+		this.fetchNavData = this.fetchNavData.bind(this) // Nav数据
 		this.fetchShops = this.fetchShops.bind(this)
 		this.onScrollBottom = this.onScrollBottom.bind(this)
 		this.initPage = this.initPage.bind(this)
 		this.addCustomEventListener = this.addCustomEventListener.bind(this)
-
 	}
 
 	// 顶部数据数据
@@ -187,8 +180,8 @@ export default class ShopListPage extends React.Component {
 		this.isLoading = true
 		$.get(`/wap/react/shop-list?category_id=${id}&page=${page}`, (res) => {
 			this.isLoading = false
-			if (res.code == 0) {
-				if (res.data.length == 0) this.is_lastpage = true
+			if (res.code === 0) {
+				if (res.data.length === 0) this.is_lastpage = true
 				this.setState({
 					shop_data: shop_data.concat(res.data)
 				})
@@ -197,7 +190,7 @@ export default class ShopListPage extends React.Component {
 		})
 	}
 
-	//顶部导航被点击
+	// 顶部导航被点击
 	onClickFilterBarItem (index) {
 		this.setState({ current_index: index })
 	}
@@ -210,8 +203,7 @@ export default class ShopListPage extends React.Component {
 	// 初始化页面、获取数据、添加监听事件等
 	initPage () {
 		if (this.initiated) return false
-		// 获取地址栏中的id
-		let category_id = Utils.getUrlParam('category_id') || 0
+		let category_id = Utils.getUrlParam('category_id') || 0 // 获取地址栏中的id
 		this.fetchNavData()
 		this.fetchShops(category_id, 1)
 		this.onScrollBottom()
@@ -232,13 +224,13 @@ export default class ShopListPage extends React.Component {
 	render () {
 		let { shop_nav, shop_data } = this.state
 		if (!shop_nav) return (<Spinner />)
-		return (<section id='page-shop-list'>
-			{/* <NavigationBar onClickFilterBarItem={this.onClickFilterBarItem} data={shop_nav} onChildClick={this.onChildClick}/>
-            <FilterBar onClickFilterBarItem={this.onClickFilterBarItem.bind(this)}/>
-            <ShopList data={this.state.shop_data}/> */}
-			<NavigationBar data={shop_nav} onClickFilterBarItem={this.onClickFilterBarItem} onChildClick={this.onChildClick} />
-			<FilterBar onClickFilterBarItem={this.onClickFilterBarItem.bind(this)} />
-			<ShopList />
-		</section>)
+		return (
+			<section id='page-shop-list'>
+				<NavigationBar data={shop_nav} onClickFilterBarItem={this.onClickFilterBarItem} onChildClick={this.onChildClick} />
+				<FilterBar onClickFilterBarItem={this.onClickFilterBarItem.bind(this)} />
+				<ShopList />
+				{/* <ShopList data={shop_data} /> /> */}
+			</section>
+		)
 	}
 }

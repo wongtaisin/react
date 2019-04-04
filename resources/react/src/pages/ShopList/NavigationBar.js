@@ -10,10 +10,9 @@ export default class NavigationBar extends React.Component {
 
 	constructor(props) {
 		super(props)
-		// 获取地址栏中的category_id参数
-		let category_id = Utils.getUrlParam('category_id') || 0
-		// 通过category_id获取当前频道的index
-		let default_index = this.getTabIndexByCategoryId(this.props.data, category_id)
+
+		let category_id = Utils.getUrlParam('category_id') || 0 // 获取地址栏中的category_id参数
+		let default_index = this.getTabIndexByCategoryId(this.props.data, category_id) // 通过category_id获取当前频道的index
 
 		this.state = {
 			current_index: default_index || 0, // 设置默认的tab索引，按地址栏参数默认选中
@@ -24,7 +23,6 @@ export default class NavigationBar extends React.Component {
 	}
 
 	// 通过category_id获取当前顶部Tab的Index
-
 	getTabIndexByCategoryId (category_array, category_id) {
 		let found_index = 0
 
@@ -60,7 +58,6 @@ export default class NavigationBar extends React.Component {
 				window.current_navigation_page = 2
 			}
 		})
-
 	}
 
 	componentDidMount () {
@@ -68,14 +65,9 @@ export default class NavigationBar extends React.Component {
 	}
 
 	// 初始化Tab栏
-
 	initNavigationBar () {
-
-		// 初始化默认Tab
-		let { current_index, current_category_id } = this.state
-
-		// 如果默认不是第一个tab，则触发点击tab的事件方法来切换到指定的tab
-		if (current_index != 0) this.onClickFilterBarItem(current_index, current_category_id, this.props.data[current_index].name)
+		let { current_index, current_category_id } = this.state // 初始化默认Tab
+		if (current_index != 0) this.onClickFilterBarItem(current_index, current_category_id, this.props.data[current_index].name) // 如果默认不是第一个tab，则触发点击tab的事件方法来切换到指定的tab
 
 		// 初始化TAB栏滑动
 		this.swiper_navigation = new Swiper('.js-swiper-navigation-shops', {

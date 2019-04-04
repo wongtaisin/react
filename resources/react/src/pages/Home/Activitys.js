@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 class ActivityItem extends React.Component {
+
 	constructor(props) {
 		super(props)
 	}
@@ -36,7 +37,6 @@ class ActivityItem extends React.Component {
 			</ul>
 		)
 	}
-
 }
 
 export default class Activitys extends React.Component {

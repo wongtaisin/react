@@ -1,7 +1,7 @@
 import React from 'react'
-import UserHead from './UserHead' //个人中心头像设置
-import UserOrder from './UserOrder' //个人中心订单
-import UserList from './UserList' //个人中心列表
+import UserHead from './UserHead' // 个人中心头像设置
+import UserOrder from './UserOrder' // 个人中心订单
+import UserList from './UserList' // 个人中心列表
 
 export default class PageUser extends React.Component {
 

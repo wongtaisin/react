@@ -1,7 +1,7 @@
 import React from 'react'
 import Utils from '../../Utils'
 
-//因为编译时会出错，所以加上这个定义 TODO:更改ESLint配置来解决这个问题 2017-10-16
+// 因为编译时会出错，所以加上这个定义 TODO:更改ESLint配置来解决这个问题 2017-10-16
 const $ = window.jQuery
 
 // 底部Tab栏
@@ -35,9 +35,7 @@ export default class TabBar extends React.Component {
 
 	dispatchCustomEvent (item) {
 		let need_dispatch_event_tabs = ['home', 'shops', 'activitys']
-
 		window.current_tab_name = item.name
-
 		if (need_dispatch_event_tabs.indexOf(item.name) !== -1) {
 			document.dispatchEvent(new CustomEvent(item.name, { detail: {} }))
 		}
@@ -45,18 +43,10 @@ export default class TabBar extends React.Component {
 
 	// 点击TAB栏标签
 	onClickItem (index, item) {
-
-		// 如果有外链
-		if (typeof item.link != 'undefined') return window.location.href = item.link
-
-		// 更改浏览器标题
-		document.title = item.title ? item.title : item.label
-
-		// 发送自定义事件, 其他导航栏中监听
-		this.dispatchCustomEvent(item)
-
-		// 切换Tab时,先将窗口的滚动距离设置为0
-		$(window).scrollTop(0)
+		if (typeof item.link != 'undefined') return window.location.href = item.link // 如果有外链
+		document.title = item.title ? item.title : item.label // 更改浏览器标题
+		this.dispatchCustomEvent(item) // 发送自定义事件, 其他导航栏中监听
+		$(window).scrollTop(0) // 切换Tab时,先将窗口的滚动距离设置为0
 
 		// 更新地址栏参数
 		Utils.updateBrowserUrl([{
@@ -64,8 +54,7 @@ export default class TabBar extends React.Component {
 			value: item.name
 		}])
 
-		// 这里添加一个去除category_id的方法
-		Utils.delQueStr(window.location.href, 'category_id')
+		Utils.delQueStr(window.location.href, 'category_id') // 这里添加一个去除category_id的方法
 
 		// 情况category_id
 		// Utils.updateBrowserUrl([{
@@ -80,13 +69,6 @@ export default class TabBar extends React.Component {
 
 	// 获取购物车数字角标
 	fetchCartTabCount () {
-		// $.get(`/wap/react/get-cart-count`, (res) => {
-		// 	if (res.code === 0) {
-		// 		if (res.data.cart_count > 99) res.data.cart_count = `99+`
-		// 		this.setState({ cart_count: res.data.cart_count })
-		// 	}
-		// })
-
 		this.setState({ cart_count: `99+` })
 	}
 

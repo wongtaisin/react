@@ -9,24 +9,25 @@ var Utils = {
 		let querys = {}
 		let search_string = "?"
 
-		//如果已有参数
+		// 如果已有参数
 		if (search) {
-			//分割
+			// 分割
 			search.split('?')[1].split('&').map((item) => {
 				item = item.split('=')
 				querys[item[0]] = item[1]
 			})
 		}
 
-		/** 遍历需要设置的参数
-		 *  values() 遍历键值
+		/** 
+		 * 遍历需要设置的参数
+		 * values() 遍历键值
 		 */
 		for (let item of params.values()) {
 			querys[item.key] = item.value
 		}
 
 		/** 
-		 *  entries() 遍历键名，键值
+		 * entries() 遍历键名，键值
 		 */
 		for (let [index, key] of Object.keys(querys).entries()) {
 			let symbol_and = index > 0 && (index + 1) <= Object.keys(querys).length ? '&' : ''
@@ -37,6 +38,7 @@ var Utils = {
 	},
 	/**
      * 获取地址参数
+	 * @return {String}
      */
 	getUrlParam (param_name) {
 		let search_params = {}
@@ -50,26 +52,27 @@ var Utils = {
 
 		return search_params[param_name]
 	},
-	/** 删除指定参数值
+	/** 
+	 * 删除指定参数值
 	 * @return {String} url 地址
 	 * @return {String} ref 删除的参数
 	 */
 	delQueStr (url, ref) {
 		let str = ''
-		if (url.indexOf('?') != -1) str = url.substr(url.indexOf('?') + 1)
+		if (url.indexOf('?') !== -1) str = url.substr(url.indexOf('?') + 1)
 		else return url
 		let arr = ''
 		let returnurl = ''
-		if (str.indexOf('&') != -1) {
+		if (str.indexOf('&') !== -1) {
 			arr = str.split('&')
 			for (let i in arr) {
-				if (arr[i].split('=')[0] != ref) returnurl = returnurl + arr[i].split('=')[0] + "=" + arr[i].split('=')[1] + "&"
+				if (arr[i].split('=')[0] !== ref) returnurl = returnurl + arr[i].split('=')[0] + "=" + arr[i].split('=')[1] + "&"
 			}
 			console.log(url.substr(0, url.indexOf('?')) + "?" + returnurl.substr(0, returnurl.length - 1))
 			return url.substr(0, url.indexOf('?')) + "?" + returnurl.substr(0, returnurl.length - 1)
 		} else {
 			arr = str.split('=')
-			if (arr[0] == ref) return url.substr(0, url.indexOf('?'))
+			if (arr[0] === ref) return url.substr(0, url.indexOf('?'))
 			else return url
 		}
 	},
@@ -78,7 +81,7 @@ var Utils = {
 	 * @return {Boolean}
 	 */
 	validationWithInputType (value, type) {
-		if (type == 'idcard') {
+		if (type === 'idcard') {
 			let Validator = new window.IDValidator()
 			if (!Validator.isValid(value)) return window.xmui.tip('请填写正确的身份证号码')
 		}

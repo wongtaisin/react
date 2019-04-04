@@ -3,19 +3,17 @@ import React from 'react'
 class RecommendHot extends React.Component {
 
 	RecommendHotItem (item, index) {
-		return <a href={item.url} key={index}>
-			<li className='ui-recommend-hot-item'>
-				<img src={item.image} />
-				<div className='name'>
-					<span className='tag'>美食</span>
-					<span className='title'>{item.title}</span>
-				</div>
-				<div className='footer'>
-					<span className='left'>¥{item.price}</span>
-					<span className='right'>立即抢购</span>
-				</div>
-			</li>
-		</a>
+		return <li className='ui-recommend-hot-item' key={index}>
+			<img src={item.image} alt='' />
+			<div className='name'>
+				<span className='tag'>美食</span>
+				<span className='title'>{item.title}</span>
+			</div>
+			<div className='footer'>
+				<span className='left'>¥{item.price}</span>
+				<span className='right'>立即抢购</span>
+			</div>
+		</li>
 	}
 
 	render () {

@@ -1,13 +1,14 @@
 import React from 'react'
 
 export default class SwiperBox extends React.Component {
+
 	componentDidMount () {
 		new window.Swiper('.swiper-container')
 	}
 
 	swiperItem (item, index) {
-		return <li className='swiper-slide swiper-slide-header' key={index} href={item.url}>
-			<img src={item.image} />
+		return <li className='swiper-slide swiper-slide-header' key={index}>
+			<img src={item.image} alt='' />
 		</li>
 	}
 

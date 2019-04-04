@@ -44,7 +44,6 @@ export default class TabBar extends React.Component {
 	}
 
 	render () {
-
 		return (
 			<section className='ui-tabbar'> {this.renderItems()} </section>
 		)

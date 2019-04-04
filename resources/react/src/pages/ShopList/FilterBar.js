@@ -8,10 +8,7 @@ export default class FilterBar extends React.Component {
 		this.state = {
 			current_index: 0
 		}
-
 	}
-
-	onClickFilterBarItem () { }
 
 	render () {
 		return (

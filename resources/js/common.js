@@ -17,10 +17,9 @@ var Logger = function () {
 $(function () {
 	if ($('#addAddress').length) {
 		var focus_input_timer = new Object()
-		//解决键盘弹出后遮挡输入框的问题
+		// 解决键盘弹出后遮挡输入框的问题
 		$(document).on('focus', 'input', function () {
 			focus_input_timer = setInterval(function () {
-				// if ($('.input-list .input-row-box').length < 3) {
 				if ($('.input-row-box').length < 3) {
 					document.body.scrollTop = document.body.scrollHeight
 				}

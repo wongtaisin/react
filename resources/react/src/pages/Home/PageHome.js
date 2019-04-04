@@ -68,54 +68,32 @@ export default class PageHome extends React.Component {
 		// 	}
 		// })
 
-		// fetch('resources/json/pageHome.json').then((response) => {})
-
-		// fetch('https://facebook.github.io/react-native/movies.json').then((response) => {
-		// 	if (response.status === 200) {
-		// 		response.json().then((responseJson) => {
-		// 			console.log(responseJson)
-		// 			this.setState({
-		// 				title: responseJson.title
-		// 			})
-		// 		})
-		// 	}
-		// }).catch((error) => {
-		// 	console.error(error)
-		// })
-
 		let res = {
 			data: {
 				slider_imgs: [
 					{
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg'
 					}, {
-						url: '',
 						image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540034823709&di=89963223993f1eceb63bd7989a82a810&imgtype=0&src=http%3A%2F%2Fi4.hexunimg.cn%2F2015-02-05%2F173116991.jpg'
 					}
 				],
 				menu_categorys: [
 					{
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg',
 						title: 'icon1'
 					}, {
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg',
 						title: 'icon2'
 					}, {
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg',
 						title: 'icon3'
 					}, {
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg',
 						title: 'icon4'
 					}
 				],
 				limited_goods: [
 					{
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg',
 						shop_name: '格子',
 						goods_name: '名字',
@@ -125,33 +103,27 @@ export default class PageHome extends React.Component {
 				],
 				spike_datas: [
 					{
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg'
 					}, {
-						url: '',
 						image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540034823709&di=89963223993f1eceb63bd7989a82a810&imgtype=0&src=http%3A%2F%2Fi4.hexunimg.cn%2F2015-02-05%2F173116991.jpg'
 					}
 				],
 				adds: {
 					left_datas: [
 						{
-							url: '',
 							image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg'
 						}
 					],
 					right_datas: [
 						{
-							url: '',
 							image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540034823709&di=89963223993f1eceb63bd7989a82a810&imgtype=0&src=http%3A%2F%2Fi4.hexunimg.cn%2F2015-02-05%2F173116991.jpg'
 						}, {
-							url: '',
 							image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg'
 						}
 					]
 				},
 				hot_goods: [
 					{
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg',
 						title: '名字',
 						price: '1024'
@@ -196,19 +168,16 @@ export default class PageHome extends React.Component {
 				],
 				goods_lists: [
 					{
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg',
 						title: '格子',
 						price: '名字'
 					},
 					{
-						url: '',
 						image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540034823709&di=89963223993f1eceb63bd7989a82a810&imgtype=0&src=http%3A%2F%2Fi4.hexunimg.cn%2F2015-02-05%2F173116991.jpg',
 						title: '格子',
 						price: '名字'
 					},
 					{
-						url: '',
 						image: 'http://img.mp.itc.cn/upload/20170718/75aa5fc46cfa430a90d5055b732066e0_th.jpg',
 						title: '格子',
 						price: '名字'
@@ -234,7 +203,7 @@ export default class PageHome extends React.Component {
 		let category_id = Utils.getUrlParam('category_id')
 		if (!category_id) return false
 		data.map((item, index) => {
-			if (item.category_id == category_id) found_index = index
+			if (item.category_id === category_id) found_index = index
 		})
 		return found_index
 	}
@@ -250,7 +219,7 @@ export default class PageHome extends React.Component {
 		let { data, cate_data } = this.state
 
 		// 如果是首页
-		if (this.state.navigation_page_index == 0) {
+		if (this.state.navigation_page_index === 0) {
 			return (
 				<NavigationPage>
 					<SwiperBox data={data.slider_imgs} />
@@ -273,8 +242,9 @@ export default class PageHome extends React.Component {
 		)
 	}
 
-	/** 传递给子组件的方法
-	 *  onChildClick 传递事件
+	/** 
+	 * 传递给子组件的方法
+	 * onChildClick 传递事件
 	 */
 	onChildClick (value) {
 		this.setState({

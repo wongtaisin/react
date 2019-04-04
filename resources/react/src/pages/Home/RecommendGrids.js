@@ -10,7 +10,7 @@ export default class RecommendGrids extends React.Component {
 				backgroundPosition: `center bottom`
 			}
 			return (
-				<a className='ui-recommend-grids-item' href={item.url} key={index} style={backColor}></a>
+				<div className='ui-recommend-grids-item' key={index} style={backColor}></div>
 			)
 		})
 	}
@@ -23,7 +23,7 @@ export default class RecommendGrids extends React.Component {
 				backgroundPosition: `center right`
 			}
 			return (
-				<a className='ui-recommend-grids-item' href={item.url} key={index} style={backColor}></a>
+				<div className='ui-recommend-grids-item' key={index} style={backColor}></div>
 			)
 		})
 	}
