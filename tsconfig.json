@@ -1,7 +1,29 @@
 {
   "files": [],
+
+  // 引用其他TypeScript项目配置
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    {
+      // 引用应用主配置
+      "path": "./tsconfig.app.json"
+    },
+    {
+      // 引用Node环境配置
+      "path": "./tsconfig.node.json"
+    }
+  ],
+
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "./types/auto-imports.d.ts" //此处引入系统自动生成的文件
   ]
 }

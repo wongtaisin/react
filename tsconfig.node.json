@@ -1,26 +1,27 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "types": ["node"],
-    "skipLibCheck": true,
+    "composite": true, // 启用项目引用，允许在其他项目中引用此项目
+    "tsBuildInfoFile": "./.tsbuildinfo/tsconfig.node.tsbuildinfo",
+    "target": "ES2023", // 目标ECMAScript版本为ES2023
+    "lib": ["ES2023"], // 包含ES2023库
+    "module": "ESNext", // 输出模块格式为ESNext
+    "types": ["node"], // 引入Node.js类型定义
+    "skipLibCheck": true, // 跳过库文件的类型检查
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
+    "moduleResolution": "bundler", // 模块解析策略，使用bundler模式
+    // "allowImportingTsExtensions": true, // 允许导入TypeScript文件的扩展名
+    "verbatimModuleSyntax": true, // 保持模块语法的原始格式
+    "moduleDetection": "force", // 强制检测模块类型
+    // "noEmit": true, // 不生成输出文件
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "strict": true, // 启用严格模式
+    "noUnusedLocals": true, // 报告未使用的局部变量
+    "noUnusedParameters": true, // 报告未使用的参数
+    "erasableSyntaxOnly": true, // 仅报告可擦除的语法错误
+    "noFallthroughCasesInSwitch": true, // 报告switch语句中缺少break语句
+    "noUncheckedSideEffectImports": true // 报告未检查的副作用导入
   },
   "include": ["vite.config.ts"]
 }

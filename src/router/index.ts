@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2025-12-29 15:47:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-12-29 16:22:57
+ * @LastEditTime: 2025-12-29 16:42:28
  * @FilePath: \react\src\router\index.ts
  * @Description:
  *
@@ -28,6 +28,8 @@ const Home = lazy(async () => {
   return Home
 })
 
+const ExampleComponent = lazy(() => import('../components/ExampleComponent'))
+
 const router = createHashRouter([
   {
     path: '/',
@@ -36,9 +38,11 @@ const router = createHashRouter([
       { index: true, Component: Main }, // 默认路由
       { path: '/Home', Component: Home },
       { path: '/Main', Component: Main },
+      { path: '/Example', Component: ExampleComponent },
       { path: '/NotFound', Component: NotFound },
       { path: '*', Component: NotFound } // 404路由
     ]
   }
 ])
+
 export default router
