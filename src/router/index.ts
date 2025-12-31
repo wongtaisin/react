@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2025-12-29 15:47:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-12-29 16:42:28
+ * @LastEditTime: 2025-12-31 17:14:48
  * @FilePath: \react\src\router\index.ts
  * @Description:
  *
@@ -30,6 +30,12 @@ const Home = lazy(async () => {
 
 const ExampleComponent = lazy(() => import('../components/ExampleComponent'))
 
+const Test = lazy(async () => {
+  await sleep(2000) // 模拟加载延迟
+  let Test = await import('../pages/Test')
+  return Test
+})
+
 const router = createHashRouter([
   {
     path: '/',
@@ -40,6 +46,7 @@ const router = createHashRouter([
       { path: '/Main', Component: Main },
       { path: '/Example', Component: ExampleComponent },
       { path: '/NotFound', Component: NotFound },
+      { path: '/Test', Component: Test },
       { path: '*', Component: NotFound } // 404路由
     ]
   }
