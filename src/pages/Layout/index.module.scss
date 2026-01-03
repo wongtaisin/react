@@ -1,0 +1,6 @@
+.loading{
+  @include flexBox(center, center);
+  height: 100%;
+  font-size: 58px;
+  color: #000;
+}

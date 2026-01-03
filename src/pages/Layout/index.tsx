@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2025-12-29 15:51:44
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-12-29 16:12:00
+ * @LastEditTime: 2026-01-03 11:16:14
  * @FilePath: \react\src\pages\Layout\index.tsx
  * @Description:
  *
@@ -10,6 +10,7 @@
  */
 import { Suspense } from 'react'
 import { Outlet, useNavigation } from 'react-router-dom'
+import SC from './index.module.scss'
 
 const Layout = () => {
   const navigation = useNavigation()
@@ -20,7 +21,7 @@ const Layout = () => {
       {loading === true ? (
         <div> react-router的页面加载中...</div>
       ) : (
-        <Suspense fallback={<div>Suspense的页面加载中...</div>}>
+        <Suspense fallback={<div className={SC.loading}>Suspense的页面加载中...</div>}>
           <Outlet />
         </Suspense>
       )}

@@ -2,14 +2,14 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2025-12-29 15:27:45
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-12-30 08:40:48
+ * @LastEditTime: 2026-01-03 11:31:40
  * @FilePath: \react\vite.config.ts
  * @Description:
  *
  * Copyright (c) 2025 by wongtaisin1024@gmail.com, All Rights Reserved.
  */
 import react from '@vitejs/plugin-react'
-import path from 'path'
+import path, { resolve } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vite'
 
@@ -39,10 +39,32 @@ export default defineConfig({
         filepath: './.eslintrc-auto-import.json',
         globalsPropValue: true // 设为 true 表示这些全局变量是只读的
       }
-
-      // resolvers: [ElementPlusResolver()],
     })
   ],
+  css: {
+    // CSS 预处理器配置
+    preprocessorOptions: {
+      scss: {
+        // 设置css中引用文件的路径，引入通用使用的scss文件（如包含的@mixin）
+        additionalData: `@use "@/assets/css/mixin.scss" as *;`
+      }
+    },
+    modules: {
+      // 生成的类名格式
+      generateScopedName: '[name]_[local]_[hash:base64:5]',
+      // 是否启用 camelCase 转换
+      localsConvention: 'camelCase' // 驼峰命名
+    }
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'], // 自动解析文件扩展名
+    alias: {
+      '@': pathSrc, // src 路径别名
+      assets: resolve(__dirname, 'assets'), // 资源路径别名
+      build: path.resolve(__dirname, 'build') // 构建路径别名
+    }
+  },
+
   server: {
     host: true, // 监听所有地址
     port: 9001, // 开发服务器端口
