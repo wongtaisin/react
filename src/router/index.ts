@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2025-12-29 15:47:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-12-31 17:14:48
+ * @LastEditTime: 2026-01-03 10:36:50
  * @FilePath: \react\src\router\index.ts
  * @Description:
  *
@@ -11,6 +11,7 @@
 import { lazy } from 'react'
 import { createHashRouter } from 'react-router-dom'
 import NotFound from '../pages/NotFound'
+import Conference from '../router/modules/conference' // conference模块
 
 const sleep = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -47,7 +48,8 @@ const router = createHashRouter([
       { path: '/Example', Component: ExampleComponent },
       { path: '/NotFound', Component: NotFound },
       { path: '/Test', Component: Test },
-      { path: '*', Component: NotFound } // 404路由
+      ...Conference,
+      { path: '*', Component: NotFound }
     ]
   }
 ])
