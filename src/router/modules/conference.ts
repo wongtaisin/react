@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2025-09-09 14:05:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2026-01-03 11:14:36
+ * @LastEditTime: 2026-01-03 13:45:12
  * @FilePath: \react\src\router\modules\conference.ts
  * @Description:
  *
@@ -12,9 +12,9 @@
 // React Router v6+ 版本的路由配置，适合 React 项目
 import React from 'react'
 
-const ConferenceLayout = React.lazy(() => import('../../pages/conference'))
-const ConferenceList = React.lazy(() => import('../../pages/conference/list'))
-const ConferenceDetail = React.lazy(() => import('../../pages/conference/detail'))
+const ConferenceLayout = React.lazy(() => import('../../pages/Conference'))
+const ConferenceList = React.lazy(() => import('../../pages/Conference/list'))
+const ConferenceDetail = React.lazy(() => import('../../pages/Conference/detail'))
 
 export default [
   {

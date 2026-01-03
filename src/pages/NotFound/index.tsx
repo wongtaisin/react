@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom'
+import SC from './index.module.scss'
 
 const NotFound = () => {
   return (
-    <div>
+    <div className={SC['notFound']}>
       <h1>404 Not Found</h1>
-      <NavLink to="/Main">回到首页</NavLink>
+      <button onClick={() => window.history.back()}>返回上一页</button>
     </div>
   )
 }
