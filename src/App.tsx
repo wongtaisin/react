@@ -6,7 +6,7 @@ import router from './router'
 
 const App = () => {
   return (
-    <ConfigProvider locale={zhCN}>
+    <ConfigProvider locale={zhCN} prefixCls="app-react6">
       <RouterProvider router={router} />
     </ConfigProvider>
   )
