@@ -24,8 +24,14 @@
     // "erasableSyntaxOnly": true, // ❌ "erasableSyntaxOnly" 是无效选项！
     "exactOptionalPropertyTypes": true, // ✅ 启用严格可选属性
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
+
   "include": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.d.ts", "./types/auto-imports.d.ts"],
   "exclude": ["node_modules"]
 }

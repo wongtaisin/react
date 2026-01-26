@@ -1,7 +1,7 @@
+import { useAppDispatch, useAppSelector } from '@/hooks/useRedux'
+import { decrement, increment } from '@/store/counterSlice'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { useAppDispatch, useAppSelector } from '../hooks/useRedux'
-import { decrement, increment } from '../store/counterSlice'
 
 // 使用 axios 获取示例数据
 const fetchData = async () => {
